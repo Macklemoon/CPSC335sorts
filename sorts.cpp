@@ -218,15 +218,18 @@ int main(int argc, const char * argv[]) {
              (a.age_ == b.age_ && a.gpa_ == b.gpa_ && a.lname_ == b.lname_ && a.fname_ < b.fname_);
     };
 */
-//    test_sort_from_file<std::string>("quick_sort", "words3.txt", quick_sort<std::string>());
+    test_sort_from_file<std::string>("quick_sort", "words3.txt", quick_sort<std::string>());
 
-//    test_sort_from_file<std::string>("quick_sort_3way", "words3.txt", quick_sort_3way<std::string>());
+    test_sort_from_file<std::string>("quick_sort_3way", "words3.txt", quick_sort_3way<std::string>());
+    test_sort_from_file<std::string>("quick_sort -- reversed", "words3.txt", quick_sort<std::string>(), rev_comparator<std::string>());
 
   //  student::run_tests();
 
 //  test_sort_from_file("heap_sort", "sort_example.txt", heap<std::string>());
 
   test_sort_from_file<std::string>("heap_sort", "words3.txt", heap<std::string>());
+  test_sort_from_file<std::string>("heap_sort -- reversed", "words3.txt", heap<std::string>(), rev_comparator<std::string>());
+
   const comparator<int>& comp=fwd_comparator<int>();
   max_pq_heap<int> pq;
   std::cout << "Inserting int 1\n";
@@ -243,7 +246,7 @@ int main(int argc, const char * argv[]) {
   pq.insert(5);
   std::cout << "Inserting int 8\n";
   pq.insert(8);
-  std::cout << "Displaying Priority queue with arr[0] as dummy data.\n";
+  std::cout << "Displaying Priority queue with arr[0] as null like\nwith Sedgewick's java implementation.\n";
   pq.printPQ();
   pq.delMax();
   std::cout << "Deleted the max item.\n";
